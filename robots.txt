@@ -1,0 +1,11 @@
+User-agent:*
+User-agent: Googlebot-Image
+Allow: /
+
+User-Agent: yahoo-mmcrawler
+Allow: /
+
+User-Agent: psbot
+Allow: /
+
+Sitemap: http//www.nutrimed.com.br/sitemap.xml
