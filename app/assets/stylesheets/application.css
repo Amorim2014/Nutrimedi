@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require twitter-bootstrap-static/bootstrap
+ *= require devise_bootstrap_views
+ *= require order_items
+ *= require orders
+ *= require products
+ *= require users
+ * require_tree .
+ *= require_self
+ */
+.container {
+    width: 1600px;
+    margin-bottom: 25px;
+}
+.navbar-nav {
+    float: left;
+    margin: 0;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+}

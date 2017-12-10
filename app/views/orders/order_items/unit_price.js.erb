@@ -1,0 +1,7 @@
+$('#order_item_unit_price').val('<%= @unit_price %>');
+
+    $('.money').priceFormat({
+      prefix: 'R$ ',
+      centsSeparator: ',',
+      thousandsSeparator: '.'
+    });

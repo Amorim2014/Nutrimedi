@@ -1,0 +1,125 @@
+  <%= form_for @customer, :html => { :class => "form-horizontal customer" } do |f| %>
+  <h5>*Insira seus dados para dar continuidade ao uso do sistema</h5>
+  <% if @customer.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :company_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:company_name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cnpj_cpf, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cnpj_cpf, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cnpj_cpf) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ie_rg, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ie_rg, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ie_rg) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:phone) %>
+  </div>
+    <div class="form-group">
+    <%= f.label :cell_phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cell_phone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cell_phone) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:address) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :number, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :number, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:number) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :neighborhood, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :neighborhood, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:neighborhood) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:city) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :postal_code, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :postal_code, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:postal_code) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :state, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :costumer_type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:costumer_type, [["Preço Loja", "0"], ["Tabela 1", "1"], ["Tabela 2", "2"]]) %>
+    </div>
+    <%=f.error_span(:costumer_type) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                customers_path, :class => 'btn btn-warning' %>
+    </div>
+  </div>
+
+<% end %>

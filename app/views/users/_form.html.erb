@@ -1,0 +1,127 @@
+<%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user &&  current_user.admin? %>
+    
+    <div class="form-group">
+    <%= f.label :admin, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.check_box :admin, :class => 'form' %>
+    </div>
+    <%=f.error_span(:admin) %>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, placeholder: 'Informe o nome', :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.password_field :password, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:password) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.password_field :password_confirmation, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:password_confirmation) %>
+  </div>
+
+  <% if current_user &&  current_user.admin? %>
+  <div class="form-group">
+    <%= f.label :inactive, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.check_box :inactive, :class => 'form' %>
+    </div>
+    <%=f.error_span(:inactive) %>
+    </div>
+    <div class="form-group">
+    <%= f.label :costumer_type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:costumer_type, [["Preço Loja", "0"], ["Tabela 1", "1"], ["Tabela 2", "2"]], {}, {:class => 'form-control'}) %>
+    </div>
+    <%=f.error_span(:costumer_type) %>
+  </div>
+  
+  <br><hr>
+  <div class="form-group">
+    <%= f.label :reset_password_sent_at, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :reset_password_sent_at, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:reset_password_sent_at) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :remember_created_at, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :remember_created_at, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:remember_created_at) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :current_sign_in_at, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :current_sign_in_at, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:current_sign_in_at) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_sign_in_at, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :last_sign_in_at, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:last_sign_in_at) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :current_sign_in_ip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :current_sign_in_ip, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:current_sign_in_ip) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_sign_in_ip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :last_sign_in_ip, :class => 'form-control', readonly: true %>
+    </div>
+    <%=f.error_span(:last_sign_in_ip) %>
+  </div>
+  <% end%>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <% if current_user &&  current_user.admin? %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn btn-default' %>
+                <% end %>
+    </div>
+  </div>
+
+<% end %>

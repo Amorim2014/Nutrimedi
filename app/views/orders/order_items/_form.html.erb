@@ -1,0 +1,42 @@
+    <%= form_for [@order, @order_item], :html => { :class => "form-horizontal order_item" } do |f| %>
+  <div class="form-group">
+    <%= f.label :product_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">   
+      <%= select("order_item", "product_id", Product.where(inactive: false).collect {|p| [p.name, p.id]}, {include_blank: 'Selecione o Produto'}, {:class => 'form-control'})%>
+    </div>
+    <%=f.error_span(:product_id) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :quantity, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :quantity, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:quantity) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :unit_price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :unit_price, :class => 'form-control money', readonly: true %>
+    </div>
+    <%=f.error_span(:unit_price) %>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label :total_price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :total_price, :class => 'form-control money', readonly: true  %>
+    </div>
+    <%=f.error_span(:total_price) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+     
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+              order_path(@order) , :class => 'btn btn-default' %>
+    </div>
+<% end %>
+

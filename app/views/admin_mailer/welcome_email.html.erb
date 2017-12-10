@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Cliente: <%= @current_user.name %> </h3>
+    <h3>Pedido N°: <%= @order.id %> </h3>
+   
+    <table border="1" width="90%" cellpadding="8px" cellspacing="0" align='center' >
+      <thead>
+        <tr>
+          <th>Cod</th>
+          <th>Produtos</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+          <th>Preço Total</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% running_total = 0 %>
+        <% @order.order_items.each do |order_item| %>
+          <tr align='center'>
+            <td><%= order_item.id %></td>
+            <td><%= order_item.product.name unless order_item.product.blank? %></td>
+            <td><%= order_item.quantity %></td>
+            <td><%= number_to_currency(order_item.unit_price) %></td>
+            <td><%= number_to_currency(order_item.total_price) %></td>
+            
+          </tr>
+          <% running_total = running_total + (order_item.quantity * order_item.unit_price) %>
+
+        <% end %>
+      </tbody>
+    </table>
+    <h3 class="pull-right"> Valor Total do Pedido: <%= number_to_currency(running_total) %></h3>
+  </body>
+</html>
