@@ -208,38 +208,7 @@ function fixedMenu() {
 	
 }
 
-/* -------------------- Contact Form Background Map --------------------- */
-jQuery(document).ready(function($) {
-	
-	if($('#map').html()) {
-		
-		var target = $('#map').html();
 
-		$('#map').gMap({
-			controls: {
-				panControl: false,
-				zoomControl: false,
-				mapTypeControl: false,
-				scaleControl: false,
-				streetViewControl: false,
-				overviewMapControl: false
-			},
-			maptype: 'ROADMAP',
-			scrollwheel: false,
-			zoom: 13,
-			markers: [
-				{
-					address: target, // Your Adress Here
-					html: '',
-					popup: false,
-				}
-
-			],
-
-		});
-	}
-
-});
 
 /* -------------------- Placeholder for IE --------------------- */
 jQuery(document).ready(function($) {

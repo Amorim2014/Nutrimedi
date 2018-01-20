@@ -19,7 +19,6 @@
 //= require jquery-easing-1.3
 //= require jquery.animate-enhanced.min
 //= require jquery.superslides.min
-//= require jquery.gmap.min
 //= require modernizr
 //= require custom
 // require_tree .
