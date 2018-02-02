@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       if params[:search]
         @users = User.search(params[:search]).page(params[:page])
       else
-        @users = User.all.page(params[:page])
+        @users = User.order(:name).page(params[:page])
       end
     else
       @users = User.where(email: current_user.email).page(params[:page])

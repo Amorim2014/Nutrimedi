@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     if params[:search]
       @products = Product.search(params[:search]).page(params[:page])
    else
-      @products = Product.all.page(params[:page])
+      @products = Product.order(:name).page(params[:page])
     end
       @user = User.where(email: current_user.email).first
 
