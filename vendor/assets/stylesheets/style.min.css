@@ -37,10 +37,8 @@
 .span9 a{font-size: 16px;
 }
 
-.row-fluid.team{
-    text-align:center;
-  width: 1280px;
-  height: 859px;
+.row-fluid.team{width: 100%;
+    margin-left: 145px;
 }
 
 .span9 h4{color: #fff;
