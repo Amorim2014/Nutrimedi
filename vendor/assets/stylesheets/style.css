@@ -262,6 +262,8 @@ section#home {
 }
 #slides .slides-container img {
   max-width: initial;
+  width: 800px;
+  height: 600px;
 }
 #slides .slides-container .container {
   height: 100%;
