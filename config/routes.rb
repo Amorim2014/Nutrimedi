@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
   devise_scope :user do
-    resources :orders, controller: :orders
+    resources :users, controller: :users
   end
 
   resources :products
