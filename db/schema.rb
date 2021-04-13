@@ -33,10 +33,7 @@ ActiveRecord::Schema.define(version: 20171013004148) do
     t.integer  "costumer_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "user_id"
   end
-
-  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -57,39 +54,12 @@ ActiveRecord::Schema.define(version: 20171013004148) do
     t.integer  "user_id"
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "store_price"
-    t.decimal  "price_one"
-    t.decimal  "price_two"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "inactive",    default: false
-  end
+# Could not dump table "products" because of following FrozenError
+#   can't modify frozen String: "false"
 
-  create_table "users", force: :cascade do |t|
-    t.boolean  "admin"
-    t.string   "name"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.boolean  "inactive",               default: false
-    t.integer  "costumer_type"
-  end
+# Could not dump table "users" because of following FrozenError
+#   can't modify frozen String: "false"
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  add_foreign_key "customers", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
 end
