@@ -6,7 +6,7 @@
 #   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
 
- User.create!(admin: true, name: "admin", email: "nutrimedi@nutrimedi.com.br", password: "nutrimedi2021", password_confirmation: "nutrimedi2021")
+ # User.create!(admin: true, name: "admin", email: "nutrimedi@nutrimedi.com.br", password: "nutrimedi2021", password_confirmation: "nutrimedi2021")
    
 # Product.create!(name: 'ABANOX 500 ML')
 # Product.create!(name: 'ACTIVO 25G')
