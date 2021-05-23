@@ -6,6 +6,7 @@ gem 'rails', '4.2.8'
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
 gem 'bigdecimal', '1.4.2'
+gem 'nokogiri', '1.6.6.4'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
 gem 'kaminari'
 #Translations for the kaminari gem
@@ -37,7 +38,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'puma'
+gem 'puma', '3.12.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
